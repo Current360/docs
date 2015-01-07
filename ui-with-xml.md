@@ -70,16 +70,27 @@ exports.Button = Button;
 *__Important__: When parsing the XML, NativeScript will look for a component which has a matching name in the module exports!*
 ## Content components/panels
 ### Page
-###### XML
+##### Declaration
 ```XML
 <Page loaded="pageLoaded">
  …
 </Page>
 ```
-###### JS
-```JS
+##### Codebehind
+```JavaScript
 var observable = require("data/observable");
 var pages = require("ui/page");
+ 
+// Event handler for Page "loaded" event attached in main-page.xml
+function pageLoaded(args) {
+	// Get the event sender
+	var page = args.object;
+}
+exports.pageLoaded = pageLoaded;
+```
+```TypeScript
+import observable = require("data/observable");
+import pages = require("ui/page");
  
 // Event handler for Page "loaded" event attached in main-page.xml
 function pageLoaded(args) {
